@@ -1,6 +1,14 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { Sparkles, ArrowRight, Loader2, LayoutDashboard, History, Settings, LogOut, Plus } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import {
+    Sparkles,
+    ArrowRight,
+    Loader2,
+    LayoutDashboard,
+    History,
+    Settings,
+    LogOut
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 import api from '../api';
 import { useAuth } from '../context/AuthContext';

@@ -6,9 +6,18 @@ import connectDB from './db';
 
 dotenv.config();
 
-connectDB();
-
 const app = express();
+
+// Connect to DB middleware for Vercel (Serverless)
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    console.error('DB Connection failure:', error);
+    res.status(500).json({ error: 'Database connection failed' });
+  }
+});
 
 app.use(cors({
   origin: (origin, callback) => {
